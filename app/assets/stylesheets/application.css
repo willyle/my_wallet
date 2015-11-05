@@ -14,6 +14,78 @@
  *= require_self
  */
 
+
+/*Flash css*/
+#notice{
+	background-color: yellow;
+	width: 250px;
+	position: relative;
+	left: 40%;
+}
+#alert{
+	background-color: red;
+	width: 250px;
+	position: relative;
+	left: 40%;
+}
+/*Layout css*/
+body, html{
+	background-color: #30353b;
+	margin: 0;
+}
+
+#container{
+	background-color: #d7d9e5;
+	width: 500px;
+	margin: 0 auto;
+}
+header{
+	background-color: #0284a6;
+}
+#title{
+	color: #ffffff;
+	padding: 10px;
+	float: left;
+}
+#login{
+	padding: 10px;
+	text-align: right;
+	float: right;
+}
+#logout{
+	float: right;
+	padding: 10px;
+}
+#logout input[value="Logout"]{
+	font-size: 32px;
+	width: 120px;
+	height: 50px;
+}
+.clear{
+	clear: both;
+}
+#content{
+	background-color: #d7d9e5;
+	padding: 10px;
+}
+footer{
+	background-color: #0284a6;
+	color: #ffffff;
+	padding: 20px;
+	text-align: center;
+}
+
+/*Home css*/
+#signup{
+	width: 335px;
+	text-align: right;
+	margin: 0 auto;
+}
+#signup h2, #signup p{
+	text-align: center;
+}
+
+/*Credit Card css*/
 .card{
 	border-radius: 10px;
 	color: white;

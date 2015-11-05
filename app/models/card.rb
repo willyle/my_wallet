@@ -20,7 +20,7 @@ class Card < ActiveRecord::Base
 	validates :creator_id,
 				 presence: true
 				 
-	has_many :user_cards
+	has_many :user_cards, dependent: :destroy
 	has_many :users, through: :user_cards
 
 	belongs_to :owner, class_name: "User", foreign_key: "creator_id"
