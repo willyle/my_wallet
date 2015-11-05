@@ -1,0 +1,65 @@
+<h1>Profile</h1>
+
+<p> Name: <%= full_name @user %></p>
+<p> Email: <%= @user.email %></p>
+<p> Telephone: <%= @user.phone %></p>
+
+<%= button_to "Update Profile", "/profile/edit", method: "get" %>
+
+<h1>Add Card</h1>
+<%= form_for Card.new, url: '/card/add' do |f| %>
+	<%= f.label :card_number, "Card Number" %>
+	<%= f.text_field :card_number %><br>
+	<%= f.label :exp_month, "Exp. Month" %>
+	<%= f.text_field :exp_month %><br>
+	<%= f.label :exp_year, "Exp. Year" %>
+	<%= f.text_field :exp_year %><br>
+	<%= f.label :cash_balance, "Cash Balance $" %>
+	<%= f.text_field :cash_balance %><br>
+	<%= f.submit "Add Card" %>
+<% end %>
+
+<h1>Cards</h1>
+
+<% @cards.each do |card| %>
+	<div class="card <%= card.card_type %>">
+		<div class="ending_number">
+			<% if card.card_type == "Amex" %>
+				<%= card.card_number[-5..card.card_number.length] %>
+			<% else %>
+				<%= card.card_number[-4..card.card_number.length] %>
+			<% end %>
+		</div>
+
+		<div class="expiring_date">
+			<% if card.exp_month < 10 %>
+				<%= "0" + card.exp_month.to_s + "/" + card.exp_year.to_s %>
+			<% else %>
+				<%= card.exp_month.to_s + "/" + card.exp_year.to_s %>
+			<% end %>
+		</div>
+
+		<div class="full_name">
+			<%= full_name card.owner %>
+		</div>
+
+	</div>
+
+	<p>Cash Balance: <%= number_to_currency(card.cash_balance, unit: "$") %></p>
+
+	<h3>Users</h3>
+	<% card.users.each do |user| %>
+		<p><%= full_name user %></p>
+	<% end %>
+
+	<p>
+		<% if session[:user_id] == card.creator_id %>
+			<%= form_tag "/authorize", method: "post" do %>
+				<%= label_tag :email, "Enter Email" %>
+				<%= email_field_tag :email %>
+				<%= hidden_field_tag :card_id, "#{card.id}" %>
+				<%= submit_tag "Authorize User" %>
+			<% end %>
+		<% end %>
+	</p> 
+<% end %>

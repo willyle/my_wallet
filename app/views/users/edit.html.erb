@@ -1,0 +1,11 @@
+<%= form_for @user, url: "/profile/update" do |f| %>
+	<%= f.label :first_name, "First Name" %>
+	<%= f.text_field :first_name %>
+	<%= f.label :last_name, "Last Name" %>
+	<%= f.text_field :last_name %>
+	<%= f.label :email, "Email" %>
+	<%= f.email_field :email %>
+	<%= f.label :phone, "Phone" %>
+	<%= f.telephone_field :phone %>
+	<%= f.submit "Update" %>
+<% end %>

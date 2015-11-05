@@ -1,0 +1,145 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+.card{
+	border-radius: 10px;
+	color: white;
+	width: 450px;
+	height: 250px;
+}
+.Amex{
+	background-image: url('/assets/amex.png');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}
+.Amex .ending_number{
+	background-color: #95C4B5;
+	width: 312px;
+	font-size: 35px;
+	position: relative;
+	top: 140px;
+	left: 60px;
+	text-align: right;
+}
+.Amex .expiring_date{
+	background-color: #95C4B5;
+	width: 70px;
+	font-size: 20px;
+	position: relative;
+	top: 149px;
+	left: 190px;
+}
+.Amex .full_name{
+	background-color: #95C4B5;
+	width: 330px;
+	font-size: 32px;
+	position: relative;
+	top: 150px;
+	left: 39px;
+}
+.Visa{
+	background-image: url('/assets/visa.jpg');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}
+.Visa .ending_number{
+	background-color: #416391;
+	width: 360px;
+	font-size: 35px;
+	position: relative;
+	top: 135px;
+	left: 45px;
+	text-align: right;
+}
+.Visa .expiring_date{
+	background-color: #416391;
+	width: 99px;
+	font-size: 20px;
+	position: relative;
+	top: 150px;
+	left: 183px;
+	text-align: center;
+}
+.Visa .full_name{
+	background-color: #416391;
+	width: 320px;
+	font-size: 32px;
+	position: relative;
+	top: 150px;
+	left: 10px;
+}
+.Mastercard{
+	background-image: url('/assets/mastercard.jpg');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}
+.Mastercard .ending_number{
+	background-color: #C1A14E;
+	width: 360px;
+	font-size: 30px;
+	position: relative;
+	top: 135px;
+	left: 45px;
+	text-align: right;
+}
+.Mastercard .expiring_date{
+	background-color: #000000;
+	width: 80px;
+	font-size: 20px;
+	position: relative;
+	top: 150px;
+	left: 193px;
+	text-align: center;
+}
+.Mastercard .full_name{
+	background-color: #000000;
+	width: 312px;
+	font-size: 32px;
+	position: relative;
+	top: 150px;
+	left: 15px;
+}
+.Discover{
+	background-image: url('/assets/discover.jpg');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}
+.Discover .ending_number{
+	width: 312px;
+	font-size: 35px;
+	position: relative;
+	top: 140px;
+	left: 60px;
+	text-align: right;
+}
+.Discover .expiring_date{
+	width: 70px;
+	font-size: 20px;
+	position: relative;
+	top: 149px;
+	left: 190px;
+}
+.Discover .full_name{
+	width: 330px;
+	font-size: 32px;
+	position: relative;
+	top: 150px;
+	left: 39px;
+}

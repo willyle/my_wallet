@@ -1,0 +1,32 @@
+<h1>My Wallet App</h1>
+
+<h2>Sign Up</h2>
+
+<%= form_tag "/user/create", method: "post" do %>
+	<%= label_tag :email, "Email" %>
+	<%= email_field_tag :email %><br>
+	<%= label_tag :email_confirmation, " Re-Enter Email" %>
+	<%= email_field_tag :email_confirmation %><br>
+	<%= label_tag :password, "Password" %>
+	<%= password_field_tag :password %><br>
+	<%= label_tag :password_confirmation, "Re-Enter Password" %>
+	<%= password_field_tag :password_confirmation %><br>
+	Password must be 6 characters long.<br>
+	<%= label_tag :first_name, "First Name" %>
+	<%= text_field_tag :first_name %><br>
+	<%= label_tag :last_name, "Last Name" %>
+	<%= text_field_tag :last_name %><br>
+	<%= label_tag :phone, "Phone" %>
+	<%= telephone_field_tag :phone %><br>
+	<%= submit_tag "Sign Up" %>
+<% end %>
+
+<h2>Login</h2>
+
+<%= form_tag "/session/create", method: "post" do %>
+	<%= label_tag :email, "Email" %>
+	<%= email_field_tag :email %><br>
+	<%= label_tag :password, "Password" %>
+	<%= password_field_tag :password %><br>
+	<%= submit_tag "Login" %>
+<% end %>
