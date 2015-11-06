@@ -45,7 +45,12 @@
 
 	</div>
 
-	<p>Cash Balance: <%= number_to_currency(card.cash_balance, unit: "$") %></p>
+	<div class="cash_balance">
+		<p>Cash Balance: <%= number_to_currency(card.cash_balance, unit: "$") %>
+		</p>
+
+		<%= link_to "Add Dollar", dollaradd_path(id: card.id), method: "post", remote: true, class: "dollar" %>
+	</div>
 
 	<h3>Users</h3>
 	<% card.users.each do |user| %>

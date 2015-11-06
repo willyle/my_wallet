@@ -14,6 +14,12 @@ class CardsController < ApplicationController
 		redirect_to root_path
 	end
 
+	def update
+		@card = Card.find(params[:id])
+		@card.cash_balance += 1
+		@card.save
+	end
+
 	private
 		def card_params
 			params.require(:card).permit(:card_number, :exp_month, :exp_year, :cash_balance)

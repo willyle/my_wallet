@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   post '/session/create' => 'sessions#create'
   delete '/sessions/destroy' => 'sessions#destroy'
 
+  post '/addT' => 'home#addt'
+  post '/dollaradd' => 'cards#update'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
