@@ -20,6 +20,22 @@ class CardsController < ApplicationController
 		@card.save
 	end
 
+	def destroy
+		@card = Card.find(params[:id])
+
+		if @card.creator_id == session[:user_id]	
+			if @card.destroy
+				flash[:notice] = "You have deleted the card successfully."
+			else
+				flash[:alert] = "There was an error in deleting your card."
+			end
+		else
+			flash[:alert] = "You have no authority to delete this card. Nice try buddy."
+		end
+
+		redirect_to root_path
+	end
+
 	private
 		def card_params
 			params.require(:card).permit(:card_number, :exp_month, :exp_year, :cash_balance)

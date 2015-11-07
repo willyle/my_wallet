@@ -215,3 +215,6 @@ footer{
 	top: 150px;
 	left: 39px;
 }
+.delete{
+	float: right;
+}

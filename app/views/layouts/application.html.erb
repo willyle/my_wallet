@@ -1,53 +1,54 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>My Wallet</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-	<div id="notice">
-		<%= flash[:notice] if flash[:notice] %>
-	</div>
+	<head>
+	  <title>My Wallet</title>
+	  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	  <%= csrf_meta_tags %>
+	</head>
 
-	<div id="alert">
-		<%= flash[:alert] if flash[:alert] %>
-	</div>
-
-	<div id="container">
-		<header>
-			<div id="title">
-				<h1>My Wallet</h1>
-			</div>
-
-			<% if session[:user_id] %>
-				<div id="logout">
-					<%= button_to "Logout", "/sessions/destroy", method: "delete" %>
-				</div>
-			<% else %>
-				<div id="login">
-					<%= form_tag "/session/create", method: "post" do %>
-						<%= label_tag :email, "Email" %>
-						<%= email_field_tag :email %><br>
-						<%= label_tag :password, "Password" %>
-						<%= password_field_tag :password %><br>
-						<%= submit_tag "Login" %>
-					<% end %>
-				</div>
-			<% end %>
-
-			<div class="clear"></div>
-
-		</header>
-
-		<div id="content">
-			<%= yield %>
+	<body>
+		<div id="notice">
+			<%= flash[:notice] if flash[:notice] %>
 		</div>
 
-		<footer>
-			<p>&#169; 2015 Chatter - All rights reserved.</p>
-		</footer>
-	</div>
-</body>
+		<div id="alert">
+			<%= flash[:alert] if flash[:alert] %>
+		</div>
+
+		<div id="container">
+			<header>
+				<div id="title">
+					<h1>My Wallet</h1>
+				</div>
+
+				<% if session[:user_id] %>
+					<div id="logout">
+						<%= button_to "Logout", "/sessions/destroy", method: "delete" %>
+					</div>
+				<% else %>
+					<div id="login">
+						<%= form_tag "/session/create", method: "post" do %>
+							<%= label_tag :email, "Email" %>
+							<%= email_field_tag :email %><br>
+							<%= label_tag :password, "Password" %>
+							<%= password_field_tag :password %><br>
+							<%= submit_tag "Login" %>
+						<% end %>
+					</div>
+				<% end %>
+
+				<div class="clear"></div>
+
+			</header>
+
+			<div id="content">
+				<%= yield %>
+			</div>
+
+			<footer>
+				<p>&#169; 2015 My Wallet - All rights reserved.</p>
+			</footer>
+		</div>
+	</body>
 </html>

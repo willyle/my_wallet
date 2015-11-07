@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
 
 	validates :password,
 				 presence: true,
-				 length: {minimum: 6},
+				 length: {minimum: 4},
 				 confirmation: true
 
 	validates :phone,

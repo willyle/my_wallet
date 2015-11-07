@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root 'home#index'
 
   post '/card/add' => 'cards#create'
+  delete '/card/delete' => 'cards#destroy'
 
   get '/profile/edit' => 'users#edit'
   patch '/profile/update' => 'users#update'
