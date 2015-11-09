@@ -16,14 +16,16 @@ class CardsController < ApplicationController
 
 	def update
 		@card = Card.find(params[:id])
-		@card.cash_balance += 1
-		@card.save
+		if @card.creator_id == session[:user_id] || session[:admin]
+			@card.cash_balance += 1
+			@card.save
+		end
 	end
 
 	def destroy
 		@card = Card.find(params[:id])
 
-		if @card.creator_id == session[:user_id]	
+		if @card.creator_id == session[:user_id] || session[:admin]
 			if @card.destroy
 				flash[:notice] = "You have deleted the card successfully."
 			else

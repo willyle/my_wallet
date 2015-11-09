@@ -8,6 +8,17 @@
 
 <p> Total Cash Balance: <%= number_to_currency(total_balance(@cards), unit: "$") %> </p>
 
+<% if session[:admin] %>
+	<h1>Delete User</h1>
+	<p>
+		<%= form_tag "/user/delete", method: "delete" do %>
+			<%= label_tag :email, "Enter Email" %>
+			<%= email_field_tag :email %>
+			<%= submit_tag "Delete User" %>
+		<% end %>
+	</p> 
+<% end %>
+
 <h1>Add Card</h1>
 <%= form_for Card.new, url: '/card/add' do |f| %>
 	<%= f.label :card_number, "Card Number" %>
@@ -25,7 +36,7 @@
 
 <% @cards.each do |card| %>
 	<div class="card <%= card.card_type %>">
-		<% if card.creator_id == session[:user_id] %>
+		<% if card.creator_id == session[:user_id] || session[:admin] %>
 			<div class="delete">
 				<%= link_to (image_tag "delete.png"), card_delete_path(id: card.id), method: "delete" %>
 			</div>
@@ -68,14 +79,14 @@
 		<% end %>
 	</ul>
 
-	<p>
-		<% if session[:user_id] == card.creator_id %>
+	<% if session[:user_id] == card.creator_id || session[:admin] %>
+		<p>
 			<%= form_tag "/authorize", method: "post" do %>
 				<%= label_tag :email, "Enter Email" %>
 				<%= email_field_tag :email %>
 				<%= hidden_field_tag :card_id, "#{card.id}" %>
 				<%= submit_tag "Authorize User" %>
 			<% end %>
-		<% end %>
-	</p> 
+		</p> 
+	<% end %>
 <% end %>

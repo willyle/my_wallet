@@ -19,6 +19,7 @@ class User < ActiveRecord::Base
 	validates :last_name,
 				 presence: true
 
+	has_one :admin
 	has_many :user_cards, dependent: :destroy
 	has_many :cards, through: :user_cards
 

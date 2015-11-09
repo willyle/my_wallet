@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get '/profile/edit' => 'users#edit'
   patch '/profile/update' => 'users#update'
   post '/user/create' => 'users#create'
+  delete '/user/delete' => 'users#destroy'
 
   post '/authorize' => 'user_cards#create'
   

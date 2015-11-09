@@ -3,7 +3,7 @@ class UserCardsController < ApplicationController
 		user = User.find_by(email: params[:email])
 		card = Card.find(params[:card_id])
 
-		if card.creator_id == session[:user_id]
+		if card.creator_id == session[:user_id] || session[:admin]
 			if user
 				UserCard.create(user_id: user.id, card_id: card.id)
 				flash[:notice] = "You have authorized a user successfully."

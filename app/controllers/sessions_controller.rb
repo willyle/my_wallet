@@ -1,7 +1,12 @@
 class SessionsController < ApplicationController
 	def index
 		@user = User.find(session[:user_id])
-		@cards = @user.cards
+
+		if session[:admin]
+			@cards = Card.all
+		else
+			@cards = @user.cards
+		end
 	end
 
 	def create
@@ -9,6 +14,10 @@ class SessionsController < ApplicationController
 		if user
 			if user.password == params[:password]
 				session[:user_id] = user.id
+				session[:admin] = false
+				if user.admin
+					session[:admin] = true
+				end
 				flash[:notice] = "You have logged in successfully."
 			else
 				flash[:alert] = "Your login information was incorrect. Please Try Again."
@@ -21,6 +30,7 @@ class SessionsController < ApplicationController
 
 	def destroy
 		session[:user_id] = nil
+		session[:admin] = nil
 
 		flash[:notice] = "You have logged out successfully."
 
